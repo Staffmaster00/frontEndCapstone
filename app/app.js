@@ -3,11 +3,11 @@
 let app = angular.module("app", ["ngRoute"])
     .constant("FBURL", "/");
 
-todoApp.config(($routeProvider) => {
-    $routeProvider
-        .when('/', {
-            templateUrl: 'partials/login.html',
-            controller: 'UserController'
+// todoApp.config(($routeProvider) => {
+//     $routeProvider
+//         .when('/', {
+//             templateUrl: 'partials/login.html',
+//             controller: 'UserController'
         // })
         // .when('/', {
         //     templateUrl: 'partials/.html',
@@ -25,5 +25,5 @@ todoApp.config(($routeProvider) => {
         //     templateUrl: 'partials/.html',
         //     controller: ''
         // })
-        .otherwise('/');
-});
+//         .otherwise('/');
+// });
