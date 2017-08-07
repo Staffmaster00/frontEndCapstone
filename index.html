@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Craving Catcher</title>
+<!-- Crazy Craving? finding small town restaurants!-->
+    <title>Crazy Craving</title>
     <link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-app="app">
+
+
+<div ng-view></div>
 
 
 
@@ -13,13 +17,23 @@
 
 
     <!-- third-party providers -->
+    <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
     <!-- app-files -->
     <script type="text/javascript" src="app/app.js"></script>
     <!-- providers -->
-    <script type="text/javascript" src="app/values/fb-creds.js"></script>
-    <script type="text/javascript" src="app/factories/user-factory.js"></script>
+    <script type="text/javascript" src="app/value/fb-creds.js"></script>
+    <script type="text/javascript" src="app/factories/APIFactory.js"></script>
+    <script type="text/javascript" src="app/factories/FBFactory.js"></script>
+    <script type="text/javascript" src="app/factories/UserFactory.js"></script>
+    <!-- controllers -->
+    <script type="text/javascript" src="app/controllers/UserController.js"></script>
+    <script type="text/javascript" src="app/controllers/SearchController.js"></script>
+    <script type="text/javascript" src="app/controllers/WatchListController.js"></script>
+    <script type="text/javascript" src="app/controllers/SaveLocationController.js"></script>
+    <script type="text/javascript" src="app/controllers/SaveRestaurantController.js"></script>
 </body>
 </html>

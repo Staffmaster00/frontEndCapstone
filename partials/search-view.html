@@ -1,0 +1,24 @@
+<div>
+    <div ng-include="nav.html"></div>
+    <div>
+        <input type="text" id="city" placeholder="City" ng-model="location">
+        <input type="text" id="craving" placeholder="Restaurant, Cuisine, Item, or Description" ng-model="craving">
+        <button type="submit" ng-click="search()">Search</button>
+    </div>
+    <div class="panel panel-default" ng-repeat="restaurant in restaurants">
+        <!-- <div class="panel-body"> -->
+            <!-- <div class="col-xs-1">
+                <input type="checkbox" ng-model="todo.isCompleted" ng-change="updateTaskStatus(todo)" />
+            </div> -->
+            <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
+            <div class="col-xs-6 name">{{restaurant.name}}</div>
+            <div class="col-xs-2 address">{{restaurant.streetAddress}}</div>
+            <div class="col-xs-2 url">{{restaurant.url}}</div>
+            <!-- <div class="col-xs-2 hours">{{restaurant.hours.getDay}}</div> -->
+            <!-- <div class="col-xs-1 delete"> -->
+                <!-- button class="btn btn-danger" ng-click="deleteTask(todo.id)">X</button>
+                deletes based on object key id-->
+    </div>
+</div>
+<!--     </div>
+</div> -->
