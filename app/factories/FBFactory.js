@@ -29,7 +29,7 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
     };
 
 
-    return {getWatchList};
+    return {getWatchList, saveRestaurant};
 });
 
 
