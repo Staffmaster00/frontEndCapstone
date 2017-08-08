@@ -6,20 +6,20 @@
         <button type="submit" ng-click="search()">Search</button>
     </div>
     <div class="panel panel-default" ng-repeat="restaurant in restaurants">
-
-            <div class="panel-heading">
-                <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
+        <div class="panel-heading">
+            <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
+        </div>
+        <div class="panel-body">
+            <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
+            <div class="address">{{restaurant.streetAddress}}</div>
+            <div ng-repeat="(day, hours) in restaurant.hours">
+                <div class="hours">{{day}}{{hours[0]}}</div>
             </div>
-            <div class="panel-body">
-                <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
-                <div class="address">{{restaurant.streetAddress}}</div>
-                <div class="hours">{{restaurant.hours}}</div>
-                <button class="save" ng-click="save(restaurant)">Save to watchlist</button>
-            </div>
-            <!-- way to replace commas with <br>? or <li> -->
-            <!-- <div class="col-xs-1 delete"> -->
-                <!-- button class="btn btn-danger" ng-click="delete(restaurant.id)">X</button>
+            <button class="save" ng-click="save(restaurant)">Save to watchlist</button>
+        </div>
+        <!-- way to replace commas with <br>? or <li> -->
+        <!-- <div class="col-xs-1 delete"> -->
+        <!-- button class="btn btn-danger" ng-click="delete(restaurant.id)">X</button>
                 deletes based on object key id-->
     </div>
 </div>
-

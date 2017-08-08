@@ -6,30 +6,39 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
     let currentUser = null;
     let day = new Date();
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let today = days[day.getDay()];
-
+    $scope.today = days[day.getDay()];
+    // console.log("today", $scope.today);
     $scope.search = () => {
         APIFactory.getResult($scope.location, $scope.craving)
             .then((searchData) => {
                 $scope.restaurants = (searchData.data.restaurants);
+                // $scope.timeArr = [];
                 console.log("restaurants", $scope.restaurants);
                 $scope.restaurants.forEach((restaurant) => {
+                    // for (let day in restaurant.hours) {
+                    //     let dayObj = {};
+                    //     dayObj[day] = restaurant.hours[day];
+                    //     $scope.timeArr.push(dayObj);
+                    //     console.log("timeArr", $scope.timeArr);
+                    // }
                     $scope.restaurants.hours = restaurant.hours;
                     $scope.dateArr = Object.keys($scope.restaurants.hours);
-                    // console.log("dateArr", $scope.dateArr);
+                    console.log("dateArr", $scope.dateArr);
                 }); //use character replacing to remove the coding syntax
                 // console.log("day?", Object.keys($scope.restaurants.hours));
             });
-    };
+    }; //TODO: need to get the day objects into an array so they can be filtered.
     //use object.keys to iterate over the restaurant.hours
-    $scope.dayDisplay = (restaurant) => {
-        $scope.dateArr.forEach((day) => {
-            console.log("day", day);
-            if (today === $scope.dateArr[day]) {
-                $scope.restaurant.date = $scope.restaurant[day].hours;
-            }
-        });
-    };
+    // $scope.dayDisplay = (day) => {
+    //     return $scope.restaurants.hours.day === $scope.today;
+    //     // $scope.dateArr.forEach((day) => {
+    //     //     console.log("day", day);
+    //     //     console.log("today", $scope.today);
+    //     //     if ($scope.today === day) {
+    //     //         $scope.restaurant.date = day;
+    //     //     }
+    //     // });
+    // };
 
 
     function displayWatchedRestaurants() {
@@ -55,7 +64,7 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
         console.log("restaurant?", restaurant);
     };
 
-    console.log("today", today);
+
 
 
 
