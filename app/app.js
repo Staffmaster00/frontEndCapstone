@@ -1,7 +1,7 @@
 "use strict";
 
 let app = angular.module("app", ["ngRoute"])
-    .constant("FBURL", "/");
+    .constant("FBURL", "https://capstone-front-end-43447.firebaseio.com/");
 
 app.config(($routeProvider) => {
     $routeProvider
