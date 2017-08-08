@@ -10,6 +10,9 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
             .then((searchData) => {
                 $scope.restaurants = (searchData.data.restaurants);
                 console.log("restaurants", $scope.restaurants);
+                $scope.restaurants.forEach((restaurant) => {
+                    $scope.restaurants.hours = restaurant.hours;
+                });//use character replacing to remove the coding syntax
                 console.log("day?", $scope.restaurants.hours);
             });
     };
@@ -32,6 +35,9 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
                 console.log("error in displayWatchedRestaurants in SearchController", err);
             });
     }
-
+    $scope.save = () => {
+        // FBFactory.saveRestaurant(this);
+        console.log("this", this);
+    };
 
 });

@@ -15,12 +15,12 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
                 });
         });
     };
-    let postUserList = (userList) => {
+    let saveRestaurant = (restaurant) => {
         return $q((resolve, reject) => {
             $http.post(`${FBURL}watchlists.json`,
-                    angular.toJson(userList))
-                .then((userListData) => {
-                    resolve(userListData);
+                    angular.toJson(restaurant))
+                .then((submittedRestaurant) => {
+                    resolve(submittedRestaurant);
                 })
                 .catch((err) => {
                     reject(err);
