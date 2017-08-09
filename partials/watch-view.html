@@ -1,0 +1,17 @@
+<div>
+    <div ng-include="nav.html"></div>
+    <button ng-click="search()">Back to Search</button>
+    <div class="panel panel-info" ng-repeat="restaurant in userWatch">
+        <div class="panel-heading">
+            <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
+        </div>
+        <div class="panel-body">
+            <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
+            <div class="address">{{restaurant.streetAddress}}</div>
+            <div ng-repeat="(day, hours) in restaurant.hours">
+                <div class="hours">{{day}}: {{hours[0]}}</div>
+            </div>
+            <button class="delete" ng-click="remove(restaurant)">Remove from Watched</button>
+        </div>
+    </div>
+</div>
