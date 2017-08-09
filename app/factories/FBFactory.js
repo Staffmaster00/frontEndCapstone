@@ -30,7 +30,7 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
     let deleteRestaurant = (restaurant) => {
         return $q((resolve, reject) => {
             if (restaurant) {
-                $http.delete(`${FBURL}watchlists/${restaurant}.json`)
+                $http.delete(`${FBURL}watchlists/${restaurant}.json`)//TODO: add firebase id to the restaurants so they can be deleted as ${restaurant.id}
                     .then((data) => {
                         resolve(data);
                     })

@@ -11,7 +11,7 @@
             <div ng-repeat="(day, hours) in restaurant.hours">
                 <div class="hours">{{day}}: {{hours[0]}}</div>
             </div>
-            <button class="delete" ng-click="remove(restaurant)">Remove from Watched</button>
+            <button class="delete" ng-click="remove(restaurant.id)">Remove from Watched</button>
         </div>
     </div>
 </div>

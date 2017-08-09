@@ -24,18 +24,18 @@ app.controller("WatchListController", function($scope, $window, FBFactory, UserF
         });
     }
     UserFactory.isAuthenticated()
-        .then((user) => {
-            console.log("user status", user);
-            currentUser = UserFactory.getUser();
+    .then((user) => {
+        console.log("user status", user);
+        currentUser = UserFactory.getUser();
+        displayWatchedRestaurants();
+    });
+    $scope.remove = (restaurantId) => {
+        console.log("delete called", restaurantId);
+        FBFactory.deleteRestaurant(restaurantId)
+        .then((data) => {
+            console.log("restaurant deleted", data);
             displayWatchedRestaurants();
         });
-    $scope.remove = (restaurant) => {
-        console.log("delete called", restaurant);
-        FBFactory.deleteRestaurant(restaurant)
-            .then((data) => {
-                console.log("restaurant deleted", data);
-                displayWatchedRestaurants(currentUser);
-            });
     };
 
 
