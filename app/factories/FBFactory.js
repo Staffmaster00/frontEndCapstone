@@ -45,7 +45,8 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
     let postHistory = (historyObj) => {
         return $q((resolve, reject) => {
             console.log("historyObj in postHistory", historyObj);
-            $http.post(`${FBURL}searchHistory/${historyObj}.json`)
+            $http.post(`${FBURL}searchHistory.json`,
+                angular.toJson(historyObj))
             .then((data) => {
                 resolve(data);
             })

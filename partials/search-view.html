@@ -5,6 +5,12 @@
         <input type="text" id="craving" placeholder="Restaurant, Cuisine, Item, or Description" ng-model="craving">
         <button type="submit" ng-click="search()">Search</button>
         <button ng-click="watch()">Watched Restaurants</button>
+        <select>
+            <option ng-repeat="option in history">
+                {{option.history[0]}}
+            </option>
+        </select>
+
       <!--   <label for="zipcode">Save Zipcodes to use later!</label>
         <input id="zipcode" type="text" class="zip">
         <button id="scode" ng-click="">Submit Zip Code</button> -->
