@@ -18,6 +18,7 @@ app.controller("WatchListController", function($scope, $window, FBFactory, UserF
             });
 
             $scope.userWatch = restaurantArr;
+            console.log("$scope", $scope.userWatch);
         })
         .catch((err) => {
             console.log("error in displayWatchedRestaurants in SearchController", err);
