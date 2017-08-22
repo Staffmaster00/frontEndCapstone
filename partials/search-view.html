@@ -1,25 +1,26 @@
 <div>
-    <div ng-include="nav.html"></div>
-    <div>
-        <input type="text" id="city" placeholder="City" ng-model="location">
-        <input type="text" id="craving" placeholder="Restaurant, Cuisine, Item, or Description" ng-model="craving">
-        <button type="submit" ng-click="search()">Search</button>
-        <button ng-click="watch()">Watched Restaurants</button>
-        <label for="zipcodedropdown">Search History</label>
-        <select name="zipcodedropdown">
-            <option ng-repeat="option in history">
-                {{option.history[0]}}
-            </option>
-        </select>
-
-      <!--   <label for="zipcode">Save Zipcodes to use later!</label>
-        <input id="zipcode" type="text" class="zip">
-        <button id="scode" ng-click="">Submit Zip Code</button> -->
-<!--         <select ng-model="" ng-options>
-
-        </select> -->
-        <!-- use a function to take the input value and store it in a dropdown menu that
-        searches based on selection -->
+    <!-- <div ng-include="nav.html"></div> -->
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">City</span>
+        <input type="text" aria-describedby="basic-addon1" class="form-control" placeholder="City" ng-model="location">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">Craving</span>
+        <input type="text" aria-describedby="basic-addon2" class="form-control" placeholder="Restaurant or Item" ng-model="craving">
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+        <button  class="btn btn-default" type="submit" ng-click="search()">Search</button>
+        <button  class="btn btn-default" ng-click="watch()">Watched Restaurants</button>
+        <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zip Code History References
+        <span class="caret"></span>
+        </button>
+            <ul class="dropdown-menu" name="zipcodedropdown" id="histValue" placeholder="Zip Code History">
+                <li ng-repeat="option in history">
+                    {{option.history[0]}}
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="panel panel-default" ng-repeat="restaurant in restaurants">
         <div class="panel-heading">
@@ -27,11 +28,14 @@
         </div>
         <div class="panel-body">
             <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
-            <div class="address">{{restaurant.streetAddress}}</div>
+            <br>
+            <div class="address"><u>Address: {{restaurant.streetAddress}}</u></div>
+            <br>
             <div ng-repeat="(day, hours) in restaurant.hours">
                 <div class="hours">{{day}}: {{hours[0]}}</div>
             </div>
-            <button class="save" ng-click="save(restaurant)">Save to your Watchlist</button>
+            <br>
+            <button class="btn-default" ng-click="save(restaurant)">Save to your Watchlist</button>
         </div>
         <!-- way to replace commas with <br>? or <li> -->
         <!-- <div class="col-xs-1 delete"> -->

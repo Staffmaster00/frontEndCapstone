@@ -6,20 +6,22 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
     let currentUser = UserFactory.getUser();
     console.log("currentUser on search view open", currentUser);
 
+
     $scope.search = () => {
         APIFactory.getResult($scope.location, $scope.craving)
             .then((searchData) => {
-                console.log("currentUser inside search function", currentUser);
-                console.log("searchData", searchData.data.restaurants);
+                // console.log("currentUser inside search function", currentUser);
+                // console.log("searchData", searchData.data.restaurants);
                 searchData.data.restaurants.forEach((restaurant) => {
                     // console.log("restaurant", restaurant);
                     restaurant.uid = currentUser;
                 });
                 $scope.restaurants = (searchData.data.restaurants);
                 pushToHistory($scope.location);
-                console.log("scopeRestaurants", $scope.restaurants);
+                // console.log("scopeRestaurants", $scope.restaurants);
             });
     };
+
 
     $scope.save = (restaurant) => {
         FBFactory.saveRestaurant(restaurant);
@@ -30,33 +32,6 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
         $window.location.href = '#!/watch-view';
     };
 
-
-    // function affirmSearch() {
-    //     let searchArr = [];
-    //     console.log("search called");
-    //     APIFactory.getResult($scope.location, $scope.craving)
-    //         .then((searchData) => {
-    //             console.log("currentUser inside search function", currentUser);
-    //             console.log("searchData", searchData.data.restaurants);
-    //             let restaurantData = searchData.data;
-    //             Object.keys(restaurantData).forEach((key) => {
-    //                 restaurantData[key].id = key;
-    //                 restaurantData.uid = currentUser;
-    //                 searchArr.push(searchData[key]);
-    //             });
-    //             $scope.restaurants = searchArr;
-    //         })
-    //         .catch((err) => {
-    //             console.log("error!", err);
-    //         });
-    // }
-
-
-
-
-    // && (location.length() === 5)
-
-
     function pushToHistory(location) {
         console.log("pushToHistory running", typeof location);
         if (!isNaN(location)) {
@@ -64,9 +39,9 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
                 history: [],
                 uid: currentUser
             };
-            console.log("historyObj.uid", historyObj.uid);
+            // console.log("historyObj.uid", historyObj.uid);
             historyObj.history.push(location);
-            console.log("historyObj.history", historyObj.history);
+            // console.log("historyObj.history", historyObj.history);
             FBFactory.postHistory(historyObj);
         } else {
             console.log("not a zip code or failed to run");
@@ -85,7 +60,22 @@ app.controller("SearchController", function($scope, $window, APIFactory, FBFacto
             });
         });
     }
-    userHistory(); //need a .then bc it's asychronic brain illness ermehgerd
+    userHistory();
+
+
+
+
+
+
+
+
+
+    //need a .then bc it's asychronic brain illness ermehgerd
+    // $scope.searchHistory = () => {
+    //     $scope.location = angular.element($('#histValue').val());
+    //     console.log("searchHistory value", $scope.location);
+    //     $scope.search();
+    // };
     // console.log("history", history);
     // console.log("historystate", history.$$state);
     // console.log("historystatevalue", history.$$state.value);
