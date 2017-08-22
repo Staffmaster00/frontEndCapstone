@@ -17,7 +17,7 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
     };
     let saveRestaurant = (restaurant) => {
         return $q((resolve, reject) => {
-            $http.post(`${FBURL}watchlists.json`,//TODO: add userid as property b4 posting
+            $http.post(`${FBURL}watchlists.json`,
                     angular.toJson(restaurant))
                 .then((submittedRestaurant) => {
                     resolve(submittedRestaurant);
@@ -30,7 +30,7 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
     let deleteRestaurant = (restaurant) => {
         return $q((resolve, reject) => {
             if (restaurant) {
-                $http.delete(`${FBURL}watchlists/${restaurant}.json`)//TODO: add firebase id to the restaurants so they can be deleted as ${restaurant.id}
+                $http.delete(`${FBURL}watchlists/${restaurant}.json`)
                     .then((data) => {
                         resolve(data);
                     })
@@ -55,7 +55,7 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
             });
         });
     };
-    let getHistory = (userid) => {//don't think it'll be zip code.
+    let getHistory = (userid) => {
         return $q((resolve, reject) => {
             console.log("userid in getHistory", userid);
             $http.get(`${FBURL}searchHistory.json?orderBy="uid"&equalTo="${userid}"`)
