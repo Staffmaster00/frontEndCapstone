@@ -72,5 +72,3 @@ app.factory("FBFactory", function($q, $http, FBURL, FBCreds) {
 
     return {getWatchList, saveRestaurant, deleteRestaurant, postHistory, getHistory};
 });
-
-

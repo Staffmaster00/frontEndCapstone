@@ -27,7 +27,7 @@
             <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
         </div>
         <div class="panel-body">
-            <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width=120px;max-height=120px;">
+            <img src="{{restaurant.logoUrl}}" alt="Restaurant Logo" style="max-width:120px;max-height:120px;">
             <br>
             <div class="address"><u>Address: {{restaurant.streetAddress}}</u></div>
             <br>
@@ -37,9 +37,5 @@
             <br>
             <button class="btn-default" ng-click="save(restaurant)">Save to your Watchlist</button>
         </div>
-        <!-- way to replace commas with <br>? or <li> -->
-        <!-- <div class="col-xs-1 delete"> -->
-        <!-- button class="btn btn-danger" ng-click="delete(restaurant.id)">X</button>
-                deletes based on object key id-->
     </div>
 </div>
