@@ -23,5 +23,4 @@ app.controller("UserController", function($scope, $window, UserFactory) {
       $window.location.href = '#!/search-view';
     });
   };
-
 });

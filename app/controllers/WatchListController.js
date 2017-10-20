@@ -38,8 +38,4 @@ app.controller("WatchListController", function($scope, $window, FBFactory, UserF
             displayWatchedRestaurants();
         });
     };
-
-
-
-
 });
