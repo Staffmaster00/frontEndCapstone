@@ -11,7 +11,7 @@ app.config(($routeProvider) => {
         })
         .when('/search-view', {
             templateUrl: 'partials/search-view',
-            controller: 'SearchController'
+            controller: 'SearchController'//maybe get rid of slash in front of search-view after the when?
         })
         .when('/watch-view', {
             templateUrl: 'partials/watch-view',
